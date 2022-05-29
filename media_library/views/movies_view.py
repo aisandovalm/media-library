@@ -15,7 +15,7 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 
-from ..models.movie_model import MoviesModel
+from ..models.movies_model import MoviesModel
 from .tabs_interface import TabsInterface
 
 class MoviesTab(TabsInterface):

@@ -5,7 +5,7 @@ from PyQt5.QtSql import QSqlDatabase, QSqlQuery
 
 
 def _createMoviesTable():
-    """Create the contacts table in the database."""
+    """Create the movies table in the database."""
     createTableQuery = QSqlQuery()
     return createTableQuery.exec(
         """
@@ -16,6 +16,22 @@ def _createMoviesTable():
             genre VARCHAR(40),
             director VARCHAR(40),
             writer VARCHAR(40)
+        )
+        """
+    )
+
+def _createGamesTable():
+    """Create the games table in the database."""
+    createTableQuery = QSqlQuery()
+    return createTableQuery.exec(
+        """
+        CREATE TABLE IF NOT EXISTS games (
+            id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+            title VARCHAR(40) NOT NULL,
+            year INTEGER,
+            genre VARCHAR(40),
+            creator VARCHAR(40),
+            studio VARCHAR(40)
         )
         """
     )
@@ -34,4 +50,5 @@ def createConnection(databaseName):
         return False
 
     _createMoviesTable()
+    _createGamesTable()
     return True
