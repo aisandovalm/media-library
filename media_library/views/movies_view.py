@@ -103,18 +103,18 @@ class MoviesTab(TabsInterface):
             self.titleField.setObjectName("Title")
             self.yearField = QLineEdit()
             self.yearField.setObjectName("Year")
-            self.directorField = QLineEdit()
-            self.directorField.setObjectName("Director")
             self.genreField = QLineEdit()
             self.genreField.setObjectName("Genre")
+            self.directorField = QLineEdit()
+            self.directorField.setObjectName("Director")
             self.writerField = QLineEdit()
             self.writerField.setObjectName("Writer")
             # Lay out the data fields
             layout = QFormLayout()
             layout.addRow("Title:", self.titleField)
             layout.addRow("Year:", self.yearField)
-            layout.addRow("Director:", self.directorField)
             layout.addRow("Genre:", self.genreField)
+            layout.addRow("Director:", self.directorField)
             layout.addRow("Writer:", self.writerField)
             self.layout.addLayout(layout)
             # Add standard buttons to the dialog and connect them
@@ -133,8 +133,8 @@ class MoviesTab(TabsInterface):
             for field in (
                 self.titleField,
                 self.yearField,
-                self.directorField,
                 self.genreField,
+                self.directorField,
                 self.writerField,
             ):
                 if field.objectName() == "Title" and not field.text():
