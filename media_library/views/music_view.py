@@ -18,6 +18,7 @@ from PyQt5.QtWidgets import (
 from ..models.music_model import MusicModel
 from .tabs_interface import TabsInterface
 
+
 class MusicTab(TabsInterface):
     def __init__(self, parent):
         """Implements TabsInterface.__init__() for Music."""
@@ -83,7 +84,6 @@ class MusicTab(TabsInterface):
 
         if messageBox == QMessageBox.Ok:
             self.musicModel.clearItems()
-    
 
     class AddDialog(QDialog):
         def __init__(self, parent=None):
@@ -130,7 +130,13 @@ class MusicTab(TabsInterface):
         def accept(self):
             """Implements TabsInterface.AddDialog.accept() for Music"""
             self.data = []
-            for field in (self.titleField, self.artistField, self.albumField, self.yearField, self.genreField):
+            for field in (
+                self.titleField,
+                self.artistField,
+                self.albumField,
+                self.yearField,
+                self.genreField,
+            ):
                 if field.objectName() in ["Title", "Artist"] and not field.text():
                     QMessageBox.critical(
                         self,

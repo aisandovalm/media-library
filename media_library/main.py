@@ -19,6 +19,6 @@ def main():
     # Create the main window
     win = Window()
     win.show()
-    
+
     # Run the event loop
     sys.exit(app.exec())

@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import (
     QDialog,
 )
 
+
 class TabsInterface(QWidget):
     def __init__(self, parent: QWidget) -> None:
         """Initializer."""
@@ -19,7 +20,6 @@ class TabsInterface(QWidget):
     def clearAllItems(self) -> None:
         """Remove all items from the database."""
         pass
-    
 
     class AddDialog(QDialog):
         def __init__(self, parent: QWidget) -> None:

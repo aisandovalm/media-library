@@ -20,6 +20,7 @@ def _createMoviesTable():
         """
     )
 
+
 def _createGamesTable():
     """Create the games table in the database."""
     createTableQuery = QSqlQuery()
@@ -36,6 +37,7 @@ def _createGamesTable():
         """
     )
 
+
 def _createMusicTable():
     """Create the music table in the database."""
     createTableQuery = QSqlQuery()
@@ -51,6 +53,7 @@ def _createMusicTable():
         )
         """
     )
+
 
 def createConnection(databaseName):
     """Create and open a database connection."""

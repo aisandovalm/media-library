@@ -2,6 +2,7 @@
 
 """This module defines the interface for the models."""
 
+
 class ModelInterface:
     def __init__(self) -> None:
         """Initializer."""

@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5.QtWidgets import (
-    QMainWindow,
-    QVBoxLayout,
-    QWidget,
-    QTabWidget
-)
+from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QTabWidget
 
 from PyQt5.QtCore import pyqtSlot
 from .movies_view import MoviesTab
 from .games_view import GamesTab
 from .music_view import MusicTab
 
+
 class Window(QMainWindow):
     """Main Window."""
+
     def __init__(self, parent=None):
         """Initializer."""
         super().__init__(parent)
@@ -22,30 +19,34 @@ class Window(QMainWindow):
         self.table_widget = MyTableWidget(self)
         self.setCentralWidget(self.table_widget)
 
+
 class MyTableWidget(QWidget):
-    
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
         self.layout = QVBoxLayout(self)
-        
+
         # Initialize tab screen
         self.tabs = QTabWidget()
         self.moviesTab = MoviesTab(self)
         self.gamesTab = GamesTab(self)
         self.musicTab = MusicTab(self)
-        self.tabs.resize(300,200)
-        
+        self.tabs.resize(300, 200)
+
         # Add tabs for each media type
-        self.tabs.addTab(self.moviesTab,"Movies")
-        self.tabs.addTab(self.gamesTab,"Games")
-        self.tabs.addTab(self.musicTab,"Music")
-        
+        self.tabs.addTab(self.moviesTab, "Movies")
+        self.tabs.addTab(self.gamesTab, "Games")
+        self.tabs.addTab(self.musicTab, "Music")
+
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
-        
+
     @pyqtSlot()
     def on_click(self):
         print("\n")
         for currentQTableWidgetItem in self.tableWidget.selectedItems():
-            print(currentQTableWidgetItem.row(), currentQTableWidgetItem.column(), currentQTableWidgetItem.text())
+            print(
+                currentQTableWidgetItem.row(),
+                currentQTableWidgetItem.column(),
+                currentQTableWidgetItem.text(),
+            )

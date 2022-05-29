@@ -7,6 +7,7 @@ from PyQt5.QtSql import QSqlTableModel
 
 from .models_interface import ModelInterface
 
+
 class MusicModel(ModelInterface):
     def __init__(self):
         """Implements ModelInterface.__init__() for Music."""

@@ -18,6 +18,7 @@ from PyQt5.QtWidgets import (
 from ..models.movies_model import MoviesModel
 from .tabs_interface import TabsInterface
 
+
 class MoviesTab(TabsInterface):
     def __init__(self, parent):
         """Implements TabsInterface.__init__() for Movies."""
@@ -83,7 +84,6 @@ class MoviesTab(TabsInterface):
 
         if messageBox == QMessageBox.Ok:
             self.moviesModel.clearItems()
-    
 
     class AddDialog(QDialog):
         def __init__(self, parent=None):
@@ -130,7 +130,13 @@ class MoviesTab(TabsInterface):
         def accept(self):
             """Implements TabsInterface.AddDialog.accept() for Movies"""
             self.data = []
-            for field in (self.titleField, self.yearField, self.directorField, self.genreField, self.writerField):
+            for field in (
+                self.titleField,
+                self.yearField,
+                self.directorField,
+                self.genreField,
+                self.writerField,
+            ):
                 if field.objectName() == "Title" and not field.text():
                     QMessageBox.critical(
                         self,
