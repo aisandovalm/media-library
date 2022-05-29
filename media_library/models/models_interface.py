@@ -13,11 +13,11 @@ class ModelInterface:
         """Create and set up the model."""
         pass
 
-    def addItem(self, data) -> None:
+    def addItem(self) -> None:
         """Add a item to the database."""
         pass
 
-    def deleteItem(self, row) -> None:
+    def deleteItem(self) -> None:
         """Remove a item from the database."""
         pass
 

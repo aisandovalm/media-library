@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import (
 
 
 class TabsInterface(QWidget):
-    def __init__(self, parent: QWidget) -> None:
+    def __init__(self) -> None:
         """Initializer."""
         pass
 
@@ -22,7 +22,7 @@ class TabsInterface(QWidget):
         pass
 
     class AddDialog(QDialog):
-        def __init__(self, parent: QWidget) -> None:
+        def __init__(self) -> None:
             """Initializer."""
             pass
 
