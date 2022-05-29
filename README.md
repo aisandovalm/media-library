@@ -7,7 +7,7 @@ Code challenge for EVERYANGLE
 1. Create and activate a Python virtual environment
 
 ```sh
-$ python -m venv ./venv
+$ python3 -m venv ./venv
 $ source venv/bin/activate
 (venv) $
 ```
