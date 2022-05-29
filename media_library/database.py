@@ -36,6 +36,22 @@ def _createGamesTable():
         """
     )
 
+def _createMusicTable():
+    """Create the music table in the database."""
+    createTableQuery = QSqlQuery()
+    return createTableQuery.exec(
+        """
+        CREATE TABLE IF NOT EXISTS music (
+            id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+            title VARCHAR(40) NOT NULL,
+            artist VARCHAR(40) NOT NULL,
+            album VARCHAR(40),
+            year INTEGER,
+            genre VARCHAR(40)
+        )
+        """
+    )
+
 def createConnection(databaseName):
     """Create and open a database connection."""
     connection = QSqlDatabase.addDatabase("QSQLITE")
@@ -51,4 +67,5 @@ def createConnection(databaseName):
 
     _createMoviesTable()
     _createGamesTable()
+    _createMusicTable()
     return True

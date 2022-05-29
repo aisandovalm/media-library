@@ -10,6 +10,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import pyqtSlot
 from .movies_view import MoviesTab
 from .games_view import GamesTab
+from .music_view import MusicTab
 
 class Window(QMainWindow):
     """Main Window."""
@@ -31,13 +32,13 @@ class MyTableWidget(QWidget):
         self.tabs = QTabWidget()
         self.moviesTab = MoviesTab(self)
         self.gamesTab = GamesTab(self)
-        self.tab3 = QWidget()
+        self.musicTab = MusicTab(self)
         self.tabs.resize(300,200)
         
         # Add tabs for each media type
         self.tabs.addTab(self.moviesTab,"Movies")
         self.tabs.addTab(self.gamesTab,"Games")
-        self.tabs.addTab(self.tab3,"Music")
+        self.tabs.addTab(self.musicTab,"Music")
         
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
