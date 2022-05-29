@@ -109,6 +109,7 @@ class GamesTab(TabsInterface):
             self.creatorField.setObjectName("Creator")
             self.studioField = QLineEdit()
             self.studioField.setObjectName("Studio")
+
             # Lay out the data fields
             layout = QFormLayout()
             layout.addRow("Title:", self.titleField)
@@ -117,6 +118,7 @@ class GamesTab(TabsInterface):
             layout.addRow("Creator:", self.creatorField)
             layout.addRow("Studio:", self.studioField)
             self.layout.addLayout(layout)
+
             # Add standard buttons to the dialog and connect them
             self.buttonsBox = QDialogButtonBox(self)
             self.buttonsBox.setOrientation(Qt.Horizontal)

@@ -16,7 +16,7 @@ def main():
     if not createConnection("media.sqlite"):
         sys.exit(1)
 
-    # Create the main window
+    # Create and show the main window
     win = Window()
     win.show()
 

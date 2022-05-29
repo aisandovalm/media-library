@@ -109,6 +109,7 @@ class MoviesTab(TabsInterface):
             self.directorField.setObjectName("Director")
             self.writerField = QLineEdit()
             self.writerField.setObjectName("Writer")
+
             # Lay out the data fields
             layout = QFormLayout()
             layout.addRow("Title:", self.titleField)
@@ -117,6 +118,7 @@ class MoviesTab(TabsInterface):
             layout.addRow("Director:", self.directorField)
             layout.addRow("Writer:", self.writerField)
             self.layout.addLayout(layout)
+
             # Add standard buttons to the dialog and connect them
             self.buttonsBox = QDialogButtonBox(self)
             self.buttonsBox.setOrientation(Qt.Horizontal)

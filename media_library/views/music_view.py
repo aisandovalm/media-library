@@ -109,6 +109,7 @@ class MusicTab(TabsInterface):
             self.yearField.setObjectName("Year")
             self.genreField = QLineEdit()
             self.genreField.setObjectName("Genre")
+
             # Lay out the data fields
             layout = QFormLayout()
             layout.addRow("Title:", self.titleField)
@@ -117,6 +118,7 @@ class MusicTab(TabsInterface):
             layout.addRow("Year:", self.yearField)
             layout.addRow("Genre:", self.genreField)
             self.layout.addLayout(layout)
+
             # Add standard buttons to the dialog and connect them
             self.buttonsBox = QDialogButtonBox(self)
             self.buttonsBox.setOrientation(Qt.Horizontal)

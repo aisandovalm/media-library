@@ -4,7 +4,6 @@
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtSql import QSqlTableModel
-
 from .models_interface import ModelInterface
 
 

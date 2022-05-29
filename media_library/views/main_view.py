@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QTabWidget
-
-from PyQt5.QtCore import pyqtSlot
 from .movies_view import MoviesTab
 from .games_view import GamesTab
 from .music_view import MusicTab
@@ -21,16 +19,17 @@ class Window(QMainWindow):
 
 
 class MyTableWidget(QWidget):
+    """Container for all the tabs."""
+
     def __init__(self, parent):
         super(QWidget, self).__init__(parent)
         self.layout = QVBoxLayout(self)
 
-        # Initialize tab screen
+        # Initialize tabs
         self.tabs = QTabWidget()
         self.moviesTab = MoviesTab(self)
         self.gamesTab = GamesTab(self)
         self.musicTab = MusicTab(self)
-        self.tabs.resize(300, 200)
 
         # Add tabs for each media type
         self.tabs.addTab(self.moviesTab, "Movies")
@@ -40,13 +39,3 @@ class MyTableWidget(QWidget):
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
-
-    @pyqtSlot()
-    def on_click(self):
-        print("\n")
-        for currentQTableWidgetItem in self.tableWidget.selectedItems():
-            print(
-                currentQTableWidgetItem.row(),
-                currentQTableWidgetItem.column(),
-                currentQTableWidgetItem.text(),
-            )
