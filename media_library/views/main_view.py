@@ -27,7 +27,7 @@ class Window(QMainWindow):
         """Initializer."""
         super().__init__(parent)
         self.setWindowTitle("Media Library")
-        self.resize(550, 250)
+        self.resize(720, 360)
         #self.centralWidget = QWidget()
         #self.setCentralWidget(self.centralWidget)
         #self.layout = QHBoxLayout()

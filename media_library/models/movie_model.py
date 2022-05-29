@@ -5,14 +5,16 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtSql import QSqlTableModel
 
+from .models_interface import ModelInterface
 
-class MoviesModel:
+class MoviesModel(ModelInterface):
     def __init__(self):
+        """Implements ModelInterface.__init__() for Movies."""
         self.model = self._createModel()
 
     @staticmethod
     def _createModel():
-        """Create and set up the model."""
+        """Implements ModelInterface._createModel() for Movies."""
         tableModel = QSqlTableModel()
         tableModel.setTable("movies")
         tableModel.setEditStrategy(QSqlTableModel.OnFieldChange)
@@ -22,8 +24,8 @@ class MoviesModel:
             tableModel.setHeaderData(columnIndex, Qt.Horizontal, header)
         return tableModel
 
-    def addMovie(self, data):
-        """Add a movie to the database."""
+    def addItem(self, data):
+        """Implements ModelInterface.addItem() for Movies."""
         rows = self.model.rowCount()
         self.model.insertRows(rows, 1)
         for column_index, field in enumerate(data):
@@ -31,14 +33,14 @@ class MoviesModel:
         self.model.submitAll()
         self.model.select()
 
-    def deleteMovie(self, row):
-        """Remove a movie from the database."""
+    def deleteItem(self, row):
+        """Implements ModelInterface.deleteItem() for Movies."""
         self.model.removeRow(row)
         self.model.submitAll()
         self.model.select()
 
-    def clearMovies(self):
-        """Remove all movies in the database."""
+    def clearItems(self):
+        """Implements ModelInterface.clearItems() for Movies."""
         self.model.setEditStrategy(QSqlTableModel.OnManualSubmit)
         self.model.removeRows(0, self.model.rowCount())
         self.model.submitAll()

@@ -36,7 +36,7 @@ class MoviesTab(TabsInterface):
         self.deleteButton = QPushButton("Delete")
         self.deleteButton.clicked.connect(self.deleteItem)
         self.clearAllButton = QPushButton("Clear All")
-        self.clearAllButton.clicked.connect(self.clearAllItems)
+        self.clearAllButton.clicked.connect(self.clearItems)
 
         # Lay out the GUI
         layout = QVBoxLayout()
@@ -52,7 +52,7 @@ class MoviesTab(TabsInterface):
         """Implements TabsInterface.openAddDialog() for Movies."""
         dialog = self.AddDialog(self)
         if dialog.exec() == QDialog.Accepted:
-            self.moviesModel.addMovie(dialog.data)
+            self.moviesModel.addItem(dialog.data)
             self.table.resizeColumnsToContents()
 
     def deleteItem(self):
@@ -61,18 +61,19 @@ class MoviesTab(TabsInterface):
         if row < 0:
             return
 
+        title = self.table.model().data(self.table.model().index(row, 1))
         messageBox = QMessageBox.warning(
             self,
             "Warning!",
-            "Do you want to remove the selected movie?",
+            f"Do you want to remove the '{title}' movie?",
             QMessageBox.Ok | QMessageBox.Cancel,
         )
 
         if messageBox == QMessageBox.Ok:
             self.moviesModel.deleteItem(row)
 
-    def clearAllItems(self):
-        """Implements TabsInterface.clearAllItems() for Movies."""
+    def clearItems(self):
+        """Implements TabsInterface.clearItems() for Movies."""
         messageBox = QMessageBox.warning(
             self,
             "Warning!",
@@ -81,7 +82,7 @@ class MoviesTab(TabsInterface):
         )
 
         if messageBox == QMessageBox.Ok:
-            self.moviesModel.clearAllItems()
+            self.moviesModel.clearItems()
     
 
     class AddDialog(QDialog):
@@ -129,8 +130,8 @@ class MoviesTab(TabsInterface):
         def accept(self):
             """Implements TabsInterface.AddDialog.accept() for Movies"""
             self.data = []
-            for field in (self.titleField):
-                if not field.text():
+            for field in (self.titleField, self.yearField, self.directorField, self.genreField, self.writerField):
+                if field.objectName() == "Title" and not field.text():
                     QMessageBox.critical(
                         self,
                         "Error!",
